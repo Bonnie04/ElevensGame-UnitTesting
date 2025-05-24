@@ -1,3 +1,32 @@
+# Elevens Card Game - Complete Development Journey
+
+##  1st Submission: Foundation & Unit Testing
+This initial version established the core classes and comprehensive unit testing framework.
+
+###  What Was Built
+- **Card Class**: Basic card representation with enum-based suits and ranks
+- **Deck Class**: 52-card deck with Fisher-Yates shuffle algorithm
+- **Player Class**: Hand management and scoring functionality  
+- **ElevensGame Class**: Initial game logic for card removal and win detection
+- **Comprehensive Unit Tests**: 15+ tests covering all class functionality
+
+###  Key Features Implemented
+- Card creation and value calculation (Ace=1, Jack=11, Queen=12, King=13)
+- Deck shuffling using Fisher-Yates algorithm
+- Game board management with 9-card layout
+- Pair detection for cards summing to 11
+- Jack-Queen-King combination detection
+- Win/loss condition checking
+- Move counting and validation
+
+###  Technical Highlights
+- Object-oriented design with proper encapsulation
+- MSTest framework for unit testing
+- Error handling for edge cases
+- Enum-based card representation for type safety
+
+---
+
 # Elevens Card Game - 2nd Submission 
 
 ##  Updated Implementation (2nd Submission)
