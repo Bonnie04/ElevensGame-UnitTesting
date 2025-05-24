@@ -1,0 +1,14 @@
+/Users/M.Y./350H_Elevens Project/ElevensGame/bin/Debug/net9.0/ElevensGame
+/Users/M.Y./350H_Elevens Project/ElevensGame/bin/Debug/net9.0/ElevensGame.deps.json
+/Users/M.Y./350H_Elevens Project/ElevensGame/bin/Debug/net9.0/ElevensGame.runtimeconfig.json
+/Users/M.Y./350H_Elevens Project/ElevensGame/bin/Debug/net9.0/ElevensGame.dll
+/Users/M.Y./350H_Elevens Project/ElevensGame/bin/Debug/net9.0/ElevensGame.pdb
+/Users/M.Y./350H_Elevens Project/ElevensGame/obj/Debug/net9.0/ElevensGame.GeneratedMSBuildEditorConfig.editorconfig
+/Users/M.Y./350H_Elevens Project/ElevensGame/obj/Debug/net9.0/ElevensGame.AssemblyInfoInputs.cache
+/Users/M.Y./350H_Elevens Project/ElevensGame/obj/Debug/net9.0/ElevensGame.AssemblyInfo.cs
+/Users/M.Y./350H_Elevens Project/ElevensGame/obj/Debug/net9.0/ElevensGame.csproj.CoreCompileInputs.cache
+/Users/M.Y./350H_Elevens Project/ElevensGame/obj/Debug/net9.0/ElevensGame.dll
+/Users/M.Y./350H_Elevens Project/ElevensGame/obj/Debug/net9.0/refint/ElevensGame.dll
+/Users/M.Y./350H_Elevens Project/ElevensGame/obj/Debug/net9.0/ElevensGame.pdb
+/Users/M.Y./350H_Elevens Project/ElevensGame/obj/Debug/net9.0/ElevensGame.genruntimeconfig.cache
+/Users/M.Y./350H_Elevens Project/ElevensGame/obj/Debug/net9.0/ref/ElevensGame.dll
