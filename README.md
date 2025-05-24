@@ -1,4 +1,4 @@
-# Elevens Card Game - 2nd Submission ✨
+# Elevens Card Game - 2nd Submission 
 
 ##  Updated Implementation (2nd Submission)
 This version now follows the complete UML specification:
@@ -91,6 +91,25 @@ This represents the 2nd submission for the Elevens game assignment with complete
 - Board has one Deck and 9 Cards
 - Deck has many Cards
 - All relationships match provided UML diagram
+
+  ##  3rd Submission Update: Fully Playable Game!
+This final version provides a complete, playable console implementation of the Elevens solitaire card game.
+
+##  How to Compile and Run
+
+### Requirements
+- .NET SDK 6.0 or later
+
+### Instructions
+```bash
+# Clone the repository
+git clone https://github.com/Bonnie04/ElevensGame-UnitTesting.git
+cd ElevensGame-UnitTesting
+
+# Build and run the game
+dotnet restore
+dotnet build
+dotnet run --project ElevensGame
 
 
  
