@@ -1,97 +1,82 @@
-// Deck.cs
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace ElevensGame
 {
     public class Deck
     {
         private List<Card> cards;
-        private Random random;
+        private int currentIndex;
 
-        public int Count => cards.Count;
+        public int CardsRemaining { get { return cards.Count - currentIndex; } }
+        public bool IsEmpty { get { return currentIndex >= cards.Count; } }
 
         public Deck()
         {
-            random = new Random();
+            cards = new List<Card>();
+            currentIndex = 0;
             InitializeDeck();
         }
 
         private void InitializeDeck()
         {
-            cards = new List<Card>();
-            
-            foreach (Card.Suit suit in Enum.GetValues<Card.Suit>())
+            string[] suits = { "Hearts", "Diamonds", "Clubs", "Spades" };
+            string[] ranks = { "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King" };
+
+            foreach (string suit in suits)
             {
-                foreach (Card.Rank rank in Enum.GetValues<Card.Rank>())
+                foreach (string rank in ranks)
                 {
-                    cards.Add(new Card(suit, rank));
+                    cards.Add(new Card(rank, suit));
                 }
             }
         }
 
         public void Shuffle()
         {
-            // Fisher-Yates shuffle algorithm (as mentioned in lecture)
+            Random random = new Random();
             for (int i = cards.Count - 1; i > 0; i--)
             {
                 int randomIndex = random.Next(i + 1);
-                SwapCards(i, randomIndex);
+                Card temp = cards[i];
+                cards[i] = cards[randomIndex];
+                cards[randomIndex] = temp;
             }
         }
 
-        private void SwapCards(int index1, int index2)
+        public Card Deal()
         {
-            Card temp = cards[index1];
-            cards[index1] = cards[index2];
-            cards[index2] = temp;
-        }
-
-        public void Cut(int position)
-        {
-            if (position <= 0 || position >= cards.Count)
-            {
-                return; // No change for edge cases
-            }
-
-            List<Card> topPortion = cards.Take(position).ToList();
-            List<Card> bottomPortion = cards.Skip(position).ToList();
+            if (IsEmpty)
+                return null;
             
-            cards.Clear();
-            cards.AddRange(bottomPortion);
-            cards.AddRange(topPortion);
+            Card card = cards[currentIndex];
+            currentIndex++;
+            return card;
         }
 
+        public void Reset()
+        {
+            currentIndex = 0;
+        }
+
+        public bool HasCards()
+        {
+            return !IsEmpty;
+        }
+
+        // Keep old methods for compatibility
         public Card TakeTopCard()
         {
-            if (cards.Count == 0)
-            {
-                throw new InvalidOperationException("Cannot take card from empty deck");
-            }
-
-            Card topCard = cards[0];
-            cards.RemoveAt(0);
-            return topCard;
+            return Deal();
         }
 
         public Card PeekTopCard()
         {
-            if (cards.Count == 0)
-            {
+            if (IsEmpty)
                 return null;
-            }
-            return cards[0];
+            return cards[currentIndex];
         }
 
-        public bool IsEmpty()
-        {
-            return cards.Count == 0;
-        }
-
-        public List<Card> GetCards()
-        {
-            return new List<Card>(cards); // Return copy to prevent external modification
-        }
+        public int Count => CardsRemaining;
     }
 }

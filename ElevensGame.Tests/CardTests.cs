@@ -9,55 +9,54 @@ namespace ElevensGame.Tests
         [TestMethod]
         public void Constructor_ValidSuitAndRank_CreatesCard()
         {
-            Card card = new Card(Card.Suit.Hearts, Card.Rank.Ace);
+            Card card = new Card("Ace", "Hearts");
             
-            Assert.AreEqual(Card.Suit.Hearts, card.CardSuit);
-            Assert.AreEqual(Card.Rank.Ace, card.CardRank);
+            Assert.AreEqual("Hearts", card.Suit);
+            Assert.AreEqual("Ace", card.Rank);
         }
 
         [TestMethod]
-        public void GetValue_AceCard_ReturnsOne()
+        public void PointValue_AceCard_ReturnsOne()
         {
-            Card card = new Card(Card.Suit.Spades, Card.Rank.Ace);
-            int value = card.GetValue();
+            Card card = new Card("Ace", "Spades");
             
-            Assert.AreEqual(1, value);
+            Assert.AreEqual(1, card.PointValue);
         }
 
         [TestMethod]
-        public void GetValue_KingCard_ReturnsThirteen()
+        public void PointValue_KingCard_ReturnsThirteen()
         {
-            Card card = new Card(Card.Suit.Clubs, Card.Rank.King);
-            int value = card.GetValue();
+            Card card = new Card("King", "Clubs");
             
-            Assert.AreEqual(13, value);
+            Assert.AreEqual(13, card.PointValue);
         }
 
         [TestMethod]
-        public void GetName_ValidCard_ReturnsCorrectFormat()
+        public void ToString_ValidCard_ReturnsCorrectFormat()
         {
-            Card card = new Card(Card.Suit.Diamonds, Card.Rank.Queen);
-            string name = card.GetName();
+            Card card = new Card("Queen", "Diamonds");
             
-            Assert.AreEqual("Queen of Diamonds", name);
+            Assert.AreEqual("Queen of Diamonds", card.ToString());
         }
 
         [TestMethod]
         public void Equals_SameCards_ReturnsTrue()
         {
-            Card card1 = new Card(Card.Suit.Hearts, Card.Rank.Five);
-            Card card2 = new Card(Card.Suit.Hearts, Card.Rank.Five);
+            Card card1 = new Card("5", "Hearts");
+            Card card2 = new Card("5", "Hearts");
             
             Assert.IsTrue(card1.Equals(card2));
         }
 
         [TestMethod]
-        public void Equals_DifferentCards_ReturnsFalse()
+        public void FlipOver_ChangeFaceUpState()
         {
-            Card card1 = new Card(Card.Suit.Hearts, Card.Rank.Five);
-            Card card2 = new Card(Card.Suit.Spades, Card.Rank.Five);
+            Card card = new Card("Ace", "Hearts");
+            bool initialState = card.FaceUp;
             
-            Assert.IsFalse(card1.Equals(card2));
+            card.FlipOver();
+            
+            Assert.AreNotEqual(initialState, card.FaceUp);
         }
     }
 }

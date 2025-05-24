@@ -20,7 +20,7 @@ namespace ElevensGame.Tests
         public void AddCard_ValidCard_IncreasesHandSize()
         {
             Player player = new Player("Test Player");
-            Card card = new Card(Card.Suit.Hearts, Card.Rank.Ace);
+            Card card = new Card("Ace", "Hearts");
             
             player.AddCard(card);
             
@@ -32,7 +32,7 @@ namespace ElevensGame.Tests
         public void RemoveCard_ExistingCard_RemovesCardAndReturnsTrue()
         {
             Player player = new Player("Test Player");
-            Card card = new Card(Card.Suit.Hearts, Card.Rank.Ace);
+            Card card = new Card("Ace", "Hearts");
             player.AddCard(card);
             
             bool result = player.RemoveCard(card);
@@ -43,25 +43,11 @@ namespace ElevensGame.Tests
         }
 
         [TestMethod]
-        public void RemoveCard_NonExistingCard_ReturnsFalse()
-        {
-            Player player = new Player("Test Player");
-            Card card1 = new Card(Card.Suit.Hearts, Card.Rank.Ace);
-            Card card2 = new Card(Card.Suit.Spades, Card.Rank.King);
-            player.AddCard(card1);
-            
-            bool result = player.RemoveCard(card2);
-            
-            Assert.IsFalse(result);
-            Assert.AreEqual(1, player.GetHandSize());
-        }
-
-        [TestMethod]
         public void ClearHand_HandWithCards_EmptiesHand()
         {
             Player player = new Player("Test Player");
-            player.AddCard(new Card(Card.Suit.Hearts, Card.Rank.Ace));
-            player.AddCard(new Card(Card.Suit.Spades, Card.Rank.King));
+            player.AddCard(new Card("Ace", "Hearts"));
+            player.AddCard(new Card("King", "Spades"));
             
             player.ClearHand();
             

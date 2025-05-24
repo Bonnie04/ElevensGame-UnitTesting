@@ -12,3 +12,4 @@
 /Users/M.Y./350H_Elevens Project/ElevensGame/obj/Debug/net9.0/ElevensGame.pdb
 /Users/M.Y./350H_Elevens Project/ElevensGame/obj/Debug/net9.0/ElevensGame.genruntimeconfig.cache
 /Users/M.Y./350H_Elevens Project/ElevensGame/obj/Debug/net9.0/ref/ElevensGame.dll
+/Users/M.Y./350H_Elevens Project/ElevensGame/obj/Debug/net9.0/ElevensGame.sourcelink.json

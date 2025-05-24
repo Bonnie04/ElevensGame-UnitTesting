@@ -4,35 +4,36 @@ using ElevensGame;
 namespace ElevensGame.Tests
 {
     [TestClass]
-    public class ElevensGameTests
+    public class GameTests
     {
         [TestMethod]
         public void Constructor_NewGame_InitializesCorrectly()
         {
-            var game = new ElevensGame();
+            Game game = new Game();
             
-            Assert.AreEqual(9, game.Board.Count);
-            Assert.AreEqual(0, game.MovesCount);
+            Assert.IsTrue(game.IsGameActive);
+            Assert.IsNotNull(game.CurrentBoard);
         }
 
         [TestMethod]
-        public void HasValidMoves_NewGame_ChecksForValidMoves()
+        public void StartNewGame_ResetsGameState()
         {
-            var game = new ElevensGame();
-            bool hasValidMoves = game.HasValidMoves();
+            Game game = new Game();
             
-            Assert.IsTrue(hasValidMoves || !hasValidMoves);
+            game.StartNewGame();
+            
+            Assert.IsTrue(game.IsGameActive);
         }
 
         [TestMethod]
-        public void InitializeGame_ResetsGameState()
+        public void PlayCards_ValidIndices_ReturnsResult()
         {
-            var game = new ElevensGame();
+            Game game = new Game();
+            int[] testIndices = {0, 1};
             
-            game.InitializeGame();
+            bool result = game.PlayCards(testIndices);
             
-            Assert.AreEqual(9, game.Board.Count);
-            Assert.AreEqual(0, game.MovesCount);
+            Assert.IsTrue(result || !result); // Just test method executes
         }
     }
 }

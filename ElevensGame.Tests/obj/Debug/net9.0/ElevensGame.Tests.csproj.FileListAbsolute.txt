@@ -171,3 +171,4 @@
 /Users/M.Y./350H_Elevens Project/ElevensGame.Tests/obj/Debug/net9.0/ElevensGame.Tests.pdb
 /Users/M.Y./350H_Elevens Project/ElevensGame.Tests/obj/Debug/net9.0/ElevensGame.Tests.genruntimeconfig.cache
 /Users/M.Y./350H_Elevens Project/ElevensGame.Tests/obj/Debug/net9.0/ref/ElevensGame.Tests.dll
+/Users/M.Y./350H_Elevens Project/ElevensGame.Tests/obj/Debug/net9.0/ElevensGame.Tests.sourcelink.json

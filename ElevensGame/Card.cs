@@ -1,69 +1,65 @@
-// Card.cs
 namespace ElevensGame
 {
     public class Card
     {
-        public enum Suit
-        {
-            Hearts,
-            Diamonds,
-            Clubs,
-            Spades
+        private string rank;
+        private string suit;
+        private bool faceUp;
+
+        public string Rank { get { return rank; } }
+        public string Suit { get { return suit; } }
+        public bool FaceUp 
+        { 
+            get { return faceUp; } 
+            set { faceUp = value; } 
         }
-
-        public enum Rank
-        {
-            Ace = 1,
-            Two = 2,
-            Three = 3,
-            Four = 4,
-            Five = 5,
-            Six = 6,
-            Seven = 7,
-            Eight = 8,
-            Nine = 9,
-            Ten = 10,
-            Jack = 11,
-            Queen = 12,
-            King = 13
-        }
-
-        public Suit CardSuit { get; private set; }
-        public Rank CardRank { get; private set; }
-
-        public Card(Suit suit, Rank rank)
-        {
-            CardSuit = suit;
-            CardRank = rank;
-        }
-
-        public int GetValue()
-        {
-            return (int)CardRank;
-        }
-
-        public string GetName()
-        {
-            return $"{CardRank} of {CardSuit}";
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (obj is Card other)
+        
+        public int PointValue 
+        { 
+            get 
             {
-                return CardSuit == other.CardSuit && CardRank == other.CardRank;
+                switch (rank.ToLower())
+                {
+                    case "ace": return 1;
+                    case "2": case "two": return 2;
+                    case "3": case "three": return 3;
+                    case "4": case "four": return 4;
+                    case "5": case "five": return 5;
+                    case "6": case "six": return 6;
+                    case "7": case "seven": return 7;
+                    case "8": case "eight": return 8;
+                    case "9": case "nine": return 9;
+                    case "10": case "ten": return 10;
+                    case "jack": return 11;
+                    case "queen": return 12;
+                    case "king": return 13;
+                    default: return 0;
+                }
             }
-            return false;
         }
 
-        public override int GetHashCode()
+        public Card(string rank, string suit)
         {
-            return HashCode.Combine(CardSuit, CardRank);
+            this.rank = rank;
+            this.suit = suit;
+            this.faceUp = true;
+        }
+
+        public void FlipOver()
+        {
+            faceUp = !faceUp;
         }
 
         public override string ToString()
         {
-            return GetName();
+            return $"{rank} of {suit}";
+        }
+
+        public bool Equals(Card other)
+        {
+            if (other == null) return false;
+            return rank.Equals(other.rank, StringComparison.OrdinalIgnoreCase) && 
+                   suit.Equals(other.suit, StringComparison.OrdinalIgnoreCase);
         }
     }
 }
